@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { signin, initiateAdmin } from "../controllers/auth.controlles";
+import { signin, initiateAdmin } from "../controllers/auth.controller";
 
 const router = Router();
 

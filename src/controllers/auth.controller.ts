@@ -12,14 +12,14 @@ export const signin = async (req: Request, res: Response): Promise<void> => {
     // check if user exist or not
     const user = await User.findOne({ email });
     if (!user) {
-      res.status(400).json({ message: "Invald Credentials, Email not found" });
+      res.status(400).json({ message: "Invalid Credentials, Email not found" });
       return;
     }
 
     // Validate password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      res.status(400).json({ message: "Invald Credentials, wrong password" });
+      res.status(400).json({ message: "Invalid Credentials, wrong password" });
       return;
     }
 
@@ -53,7 +53,7 @@ export const initiateAdmin = async (
     if (count > 0) {
       res.status(400).json({
         message:
-          "We can only have 1 admin user, if you want to create new dmin user, please delete the user in database.",
+          "We can only have 1 admin user, if you want to create new admin user, please delete the user in database.",
       });
       return;
     }
